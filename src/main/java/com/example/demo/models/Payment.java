@@ -4,15 +4,14 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Table(name = "payments")
+@Table(name = "sendpayment")
 public class Payment {
     public Payment() {
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "table_id")
+    @Column(name = "tableId")
     public long tableId;
 
     @Column(name = "systemid")
