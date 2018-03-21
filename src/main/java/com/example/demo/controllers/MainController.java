@@ -1,10 +1,9 @@
 package com.example.demo.controllers;
 
-import com.example.demo.models.AppUsers;
-import com.example.demo.repository.AppUsersRepo;
-import com.example.demo.repository.PaymentRepo;
+import com.example.demo.domain.AppUsers;
+import com.example.demo.service.AppUsersRepo;
+import com.example.demo.service.PaymentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;

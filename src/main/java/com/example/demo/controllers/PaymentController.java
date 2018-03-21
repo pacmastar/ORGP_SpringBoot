@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
-import com.example.demo.models.Payment;
-import com.example.demo.repository.PaymentRepo;
+import com.example.demo.domain.Payment;
+import com.example.demo.service.PaymentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
