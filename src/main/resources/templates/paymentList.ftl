@@ -23,9 +23,6 @@
 </head>
 <body>
 <h1>Spring boot</h1>
-<#list 1..totalPage-1 as i>
-<a href="/payment/page/${i}">${i} | </a>
-</#list>
 <br>
 <br>
 <table border="1">
