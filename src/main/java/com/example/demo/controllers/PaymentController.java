@@ -1,7 +1,8 @@
 package com.example.demo.controllers;
 
-import com.example.demo.domain.Payment;
+import com.example.demo.domain.primary.Payment;
 import com.example.demo.service.primary.PaymentService;
+import com.example.demo.service.secondary.SodTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,9 @@ public class PaymentController {
     @Autowired
     PaymentService paymentService;
 
+    @Autowired
+    SodTransactionService sodTransactionService;
+
     @RequestMapping("/payments")
     public String doPaymentList(Model model){
         List<Payment> paymentList = new ArrayList<Payment>();
@@ -26,7 +30,10 @@ public class PaymentController {
 
     @RequestMapping("/payment/view/{tableid}")
     public String viewPayment(Model model, @PathVariable("tableid") Long tableid){
-        model.addAttribute("payment",paymentService.findByTableId(tableid));
+        Payment payment = paymentService.findByTableId(tableid);
+        String cardNumber = payment.getCardNumber();
+        model.addAttribute("payment", payment);
+        model.addAttribute("sodTransactions", sodTransactionService.findByCardNumber(cardNumber));
         return "viewPayment";
     }
 

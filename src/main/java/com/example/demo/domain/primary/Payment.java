@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.domain.primary;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,7 +11,7 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "tableId")
+    @Column(name = "table_Id")
     public long tableId;
 
     @Column(name = "systemid")
