@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.service.LogParser;
+import com.example.demo.util.LogParser;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
