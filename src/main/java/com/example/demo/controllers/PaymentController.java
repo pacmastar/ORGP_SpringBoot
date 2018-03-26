@@ -21,6 +21,11 @@ public class PaymentController {
     @Autowired
     SodTransactionService sodTransactionService;
 
+    @RequestMapping("/")
+    public String indexPage(){
+        return "index";
+    }
+
     @RequestMapping("/payments")
     public String doPaymentList(Model model){
         List<Payment> paymentList = new ArrayList<Payment>();

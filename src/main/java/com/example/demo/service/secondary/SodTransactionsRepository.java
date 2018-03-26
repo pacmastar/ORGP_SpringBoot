@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface SodTransactionsRepository extends JpaRepository<SodTransaction, Long>{
 
-    List<SodTransaction> findByCardNumber(String cardNumber);
+    List<SodTransaction> findByCardNumberOrderByRegDateTimeDesc(String cardNumber);
 
 }

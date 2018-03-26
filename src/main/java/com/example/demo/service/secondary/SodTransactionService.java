@@ -13,6 +13,6 @@ public class SodTransactionService implements ISodTransactionService {
 
     @Override
     public List<SodTransaction> findByCardNumber(String cardNumber) {
-        return sodTransactionsRepository.findByCardNumber(cardNumber);
+        return sodTransactionsRepository.findByCardNumberOrderByRegDateTimeDesc(cardNumber);
     }
 }
