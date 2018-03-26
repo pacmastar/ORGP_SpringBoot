@@ -54,6 +54,20 @@
 <br>
 <table>
     <tr>
+        <th>uid</th>
+        <th>date</th>
+        <th>info</th>
+    </tr>
+    <#list messages as message>
+        <tr>
+            <td>${message.uid}</td>
+            <td>${message.regDateTime}</td>
+            <td>${message.info}</td>
+        </tr>
+    </#list>
+</table>
+<table>
+    <tr>
         <th>idSodTrans</th>
         <th>cardNumber</th>
         <th>cardType</th>

@@ -25,7 +25,7 @@ public class ParserServiceTest {
         List<String> expected = Arrays.asList("\\\\192.168.6.111\\d$\\Server-metro-5.7.2.17\\LogDir\\BytesPort\\BytesPort05.01.2018"
                 , "\\\\192.168.6.111\\d$\\Server-metro-5.7.2.17\\LogDir\\BytesPort\\BytesPort06.01.2018"
                 , "\\\\192.168.6.111\\d$\\Server-metro-5.7.2.17\\LogDir\\BytesPort\\BytesPort07.01.2018");
-        List<String> actual = logProvider.ListOfDirectories(changeStatusTime);
+        List<String> actual = logProvider.listOfDirectories(changeStatusTime);
         assertThat(actual, is(expected));
 
 

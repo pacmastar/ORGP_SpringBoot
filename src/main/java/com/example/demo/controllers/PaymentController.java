@@ -1,9 +1,11 @@
 package com.example.demo.controllers;
 
 import com.example.demo.domain.primary.Payment;
+import com.example.demo.service.ParserService;
 import com.example.demo.service.primary.PaymentService;
 import com.example.demo.service.secondary.SodTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,9 @@ public class PaymentController {
 
     @Autowired
     SodTransactionService sodTransactionService;
+
+    @Autowired
+    ParserService parserService;
 
     @RequestMapping("/")
     public String indexPage(){
@@ -39,6 +44,8 @@ public class PaymentController {
         String cardNumber = payment.getCardNumber();
         model.addAttribute("payment", payment);
         model.addAttribute("sodTransactions", sodTransactionService.findByCardNumber(cardNumber));
+
+        model.addAttribute("messages", parserService.findByUid(cardNumber, payment.getChangeStatusTime()));
         return "viewPayment";
     }
 

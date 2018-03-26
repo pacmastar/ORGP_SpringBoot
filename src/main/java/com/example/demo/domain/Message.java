@@ -5,6 +5,12 @@ public class Message {
     private String regDateTime;
     private String info;
 
+    public Message(String uid, String regDateTime, String info) {
+        this.uid = uid;
+        this.regDateTime = regDateTime;
+        this.info = info;
+    }
+
     public String getUid() {
         return uid;
     }
