@@ -49,7 +49,7 @@
 <br>
 <br>
 
-<a href="/payment/">back</a>
+<a href="/payments/">back</a>
 <br>
 <br>
 <table>
