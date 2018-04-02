@@ -53,6 +53,6 @@ public class PaymentController {
     public String unblock(@PathVariable("tableid") Long tableid){
         Payment payment = paymentService.findByTableId(tableid);
         paymentService.unblockPayment(payment);
-        return "redirect:/payment/view/{tableid}";
+        return "redirect:/payments";
     }
 }
