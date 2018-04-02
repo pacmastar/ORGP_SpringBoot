@@ -109,4 +109,19 @@ public class Payment {
     public void setChangeStatusTime(Date changeStatusTime) {
         this.changeStatusTime = changeStatusTime;
     }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "tableId=" + tableId +
+                ", systemId=" + systemId +
+                ", paymentId='" + paymentId + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", summ=" + summ +
+                ", agentTime=" + agentTime +
+                ", status=" + status +
+                ", accept=" + accept +
+                ", changeStatusTime=" + changeStatusTime +
+                '}';
+    }
 }

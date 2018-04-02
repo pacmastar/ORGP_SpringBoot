@@ -20,6 +20,7 @@ public class PaymentService implements IPaymentService {
     public void unblockPayment(Payment payment) {
         payment.setStatus(0);
         paymentRepository.save(payment);
+        System.out.println("UNBLOCK");
     }
 
 
