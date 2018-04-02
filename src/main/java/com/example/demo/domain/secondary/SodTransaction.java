@@ -45,7 +45,7 @@ public class SodTransaction {
     int agentId;
 
     @Column(name = "dos_flag")
-    byte dosFlag;
+    boolean dosFlag;
 
     @Column(name = "get_signature")
     String signature;
@@ -138,11 +138,11 @@ public class SodTransaction {
         this.agentId = agentId;
     }
 
-    public byte isDosFlag() {
+    public boolean isDosFlag() {
         return dosFlag;
     }
 
-    public void setDosFlag(byte dosFlag) {
+    public void setDosFlag(boolean dosFlag) {
         this.dosFlag = dosFlag;
     }
 

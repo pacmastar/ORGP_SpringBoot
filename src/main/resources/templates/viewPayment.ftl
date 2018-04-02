@@ -96,7 +96,7 @@
         <td>${transaction.summPurse}</td>
         <td>${transaction.validatorId}</td>
         <td>${transaction.agentId}</td>
-        <#--<td>${transaction.dosFlag}</td>-->
+        <td>${transaction.dosFlag?string("true","")}</td>
         <td>${transaction.signature}</td>
 
     </tr>
