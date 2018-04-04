@@ -2,11 +2,15 @@ package com.example.demo.util;
 
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class LogProvider {
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
     private List<String> dateList = new ArrayList<>();
 
     public  List<String> listOfDirectories(Date changeStatusTime) {
@@ -32,7 +36,7 @@ public class LogProvider {
         List<File> dirContents = new ArrayList<>();
         for (String element : listOfDirectories) {
             File[] files = new File(element).listFiles();
-            System.out.println(files.length);
+            log.info("files found: " + files.length);
             for (File file : files) {
                 dirContents.add(file);
             }

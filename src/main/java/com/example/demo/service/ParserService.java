@@ -3,6 +3,8 @@ package com.example.demo.service;
 import com.example.demo.domain.Message;
 import com.example.demo.util.LogParser;
 import com.example.demo.util.LogProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 
@@ -19,14 +21,14 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class ParserService implements IParserService {
 
-
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
     @Override
     public List<Message> findByUid(String uid, Date date) {
         LogProvider logProvider = new LogProvider();
         LogParser logParser = new LogParser();
         List<Message> messageList = new ArrayList<>();
         List<File> files = logProvider.fileListOfDirectories(date);
-        ExecutorService service = Executors.newFixedThreadPool(10);
+        ExecutorService service = Executors.newFixedThreadPool(4);
         for (File file : files) {
             service.execute(new Runnable() {
                 @Override
@@ -42,14 +44,13 @@ public class ParserService implements IParserService {
                         while ((line = bufferedReader.readLine()) != null) {
                             if (logParser.isInformationLine(line)) {
                                 if (uid.equals(logParser.parseUID(line))) {
-                                    System.out.println(logParser.parseUID(line));
                                     String regDateTime = logParser.parseDate(line);
                                     String info = logParser.convert(logParser.parseMessage(line));
                                     messageList.add(new Message(uid, regDateTime, info));
                                 }
                             }
                         }
-                        System.out.println("thread: " + Thread.currentThread().getName() + "file " + file.getName());
+                        log.info("thread: " + Thread.currentThread().getName() + "file " + file.getName());
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (ParseException e) {
