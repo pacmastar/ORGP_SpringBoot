@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.domain.primary.Payment;
+import com.example.demo.domain.secondary.PaymentBackup;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

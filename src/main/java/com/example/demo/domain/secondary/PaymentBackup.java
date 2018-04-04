@@ -1,14 +1,28 @@
-package com.example.demo.domain.primary;
+package com.example.demo.domain.secondary;
+
+import com.example.demo.domain.primary.Payment;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "sendpayment")
-public class Payment {
-
+@Table(name = "modifiedpayments")
+public class PaymentBackup {
+    public PaymentBackup() {
+    }
+    public PaymentBackup(Payment payment) {
+        this.tableId = payment.tableId;
+        this.systemId = payment.systemId;
+        this.accept = payment.accept;
+        this.agentTime = payment.agentTime;
+        this.changeStatusTime = payment.changeStatusTime;
+        this.cardNumber = payment.cardNumber;
+        this.status = payment.status;
+        this.summ = payment.summ;
+        this.paymentId = payment.paymentId;
+    }
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "table_Id")
     public long tableId;
 
@@ -35,6 +49,12 @@ public class Payment {
 
     @Column(name = "changestatustime")
     public Date changeStatusTime;
+    @Column(name = "username")
+    String userName;
+
+    @Column(name = "description")
+    String description;
+
 
     public long getTableId() {
         return tableId;
@@ -52,11 +72,11 @@ public class Payment {
         this.systemId = systemId;
     }
 
-    public String  getPaymentId() {
+    public String getPaymentId() {
         return paymentId;
     }
 
-    public void setPaymentId(String  paymentId) {
+    public void setPaymentId(String paymentId) {
         this.paymentId = paymentId;
     }
 
@@ -108,9 +128,25 @@ public class Payment {
         this.changeStatusTime = changeStatusTime;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
-        return "Payment{" +
+        return "PaymentBackup{" +
                 "tableId=" + tableId +
                 ", systemId=" + systemId +
                 ", paymentId='" + paymentId + '\'' +
@@ -120,6 +156,8 @@ public class Payment {
                 ", status=" + status +
                 ", accept=" + accept +
                 ", changeStatusTime=" + changeStatusTime +
+                ", userName='" + userName + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
