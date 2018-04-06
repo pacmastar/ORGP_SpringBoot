@@ -7,6 +7,8 @@
 <body>
 <h1>Spring boot</h1>
 <a href="/payments">payments list</a>
+<br>
+<a href="/stoplist/">payments list</a>
 
 </body>
 </html>

@@ -54,7 +54,7 @@
             <td>${payment.changeStatusTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
 
         </tr>
-    </#list>
+</#list>
 </table>
 </body>
 </html>
