@@ -1,13 +1,16 @@
-package com.example.demo.domain.secondary;
+package com.example.demo.domain.primary;
 
 
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "sodtrans")
-public class SodTransaction {
+public class SodTransactionPrimary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

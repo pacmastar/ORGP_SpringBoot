@@ -1,10 +1,10 @@
 package com.example.demo.service.secondary;
 
-import com.example.demo.domain.secondary.SodTransaction;
+import com.example.demo.domain.secondary.SodTransactionSecondary;
 
 import java.util.List;
 
 public interface ISodTransactionService {
-    List<SodTransaction> findByCardNumber(String cardNumber);
+    List<SodTransactionSecondary> findByCardNumber(String cardNumber);
 
 }

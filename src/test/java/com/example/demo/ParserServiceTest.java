@@ -1,12 +1,10 @@
 package com.example.demo;
 
-import com.example.demo.domain.secondary.SodTransaction;
 import com.example.demo.util.LogProvider;
 import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
