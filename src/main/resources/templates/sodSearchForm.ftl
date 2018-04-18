@@ -42,6 +42,8 @@
         <th>kassCode</th>
         <th>summPayment</th>
         <th>summPurse</th>
+        <th>begin</th>
+        <th>end</th>
         <th>validatorId</th>
         <th>agentId</th>
         <th>dosFlag</th>
@@ -59,6 +61,8 @@
             <td>${primary.kassCode}</td>
             <td>${primary.summPayment}</td>
             <td>${primary.summPurse}</td>
+            <td>${primary.beginDateTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
+            <td>${primary.endDateTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
             <td>${primary.validatorId}</td>
             <td>${primary.agentId}</td>
             <td>${primary.dosFlag?string("true","")}</td>
@@ -80,6 +84,8 @@
         <th>kassCode</th>
         <th>summPayment</th>
         <th>summPurse</th>
+        <th>begin</th>
+        <th>end</th>
         <th>validatorId</th>
         <th>agentId</th>
         <th>dosFlag</th>
@@ -97,6 +103,8 @@
             <td>${secondary.kassCode}</td>
             <td>${secondary.summPayment}</td>
             <td>${secondary.summPurse}</td>
+            <td>${secondary.beginDateTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
+            <td>${secondary.endDateTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
             <td>${secondary.validatorId}</td>
             <td>${secondary.agentId}</td>
             <td>${secondary.dosFlag?string("true","")}</td>

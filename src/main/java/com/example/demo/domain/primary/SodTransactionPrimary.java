@@ -44,6 +44,12 @@ public class SodTransactionPrimary {
     @Column(name = "validator_id")
     int validatorId;
 
+    @Column(name = "begin_date_time")
+    Date beginDateTime;
+
+    @Column(name = "end_date_time")
+    Date endDateTime;
+
     @Column(name = "id_agents")
     int agentId;
 
@@ -155,5 +161,21 @@ public class SodTransactionPrimary {
 
     public void setSignature(String signature) {
         this.signature = signature;
+    }
+
+    public Date getBeginDateTime() {
+        return beginDateTime;
+    }
+
+    public void setBeginDateTime(Date beginDateTime) {
+        this.beginDateTime = beginDateTime;
+    }
+
+    public Date getEndDateTime() {
+        return endDateTime;
+    }
+
+    public void setEndDateTime(Date endDateTime) {
+        this.endDateTime = endDateTime;
     }
 }
