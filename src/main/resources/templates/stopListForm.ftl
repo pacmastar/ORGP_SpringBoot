@@ -19,6 +19,9 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+        tr:hover td{
+            background: #B3CCFF;/* фон строки при наведении */
+        }
     </style>
 </head>
 <body>
@@ -34,13 +37,15 @@
         <th>id</th>
         <th>uid</th>
         <th>reason</th>
+        <th>delete</th>
     </tr>
 
     <#list cards as card>
         <tr>
         <td>${card.id?c}</td>
         <td>${card.uid}</td>
-        <td>${card.reason}</td>
+        <td>${card.reason}</td
+        <td>del</td
 
     </tr>
 </#list>

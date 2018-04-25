@@ -19,12 +19,15 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+        tr:hover td{
+            background: #B3CCFF;/* фон строки при наведении */
+        }
     </style>
 </head>
 <body>
 <h1>Spring boot</h1>
 <br>
-<br>
+<br>k
 <table border="1">
     <tr>
         <th>id</th>

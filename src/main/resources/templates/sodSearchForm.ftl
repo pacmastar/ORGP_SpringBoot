@@ -19,6 +19,10 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+
+        tr:hover td{
+            background: #B3CCFF;/* фон строки при наведении */
+        }
     </style>
 </head>
 <body>
