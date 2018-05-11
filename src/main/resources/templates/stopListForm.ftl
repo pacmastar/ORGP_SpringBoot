@@ -3,37 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-        tr:hover td{
-            background: #B3CCFF;/* фон строки при наведении */
-        }
-    </style>
+<#include "fragments/bootstrapcss.ftl">
 </head>
-<body>
-<form action="/stoplist" method="post">
-    UID:<br>
-    <input type="text" name="uid">
-    <input type="submit" value="Submit">
-</form>
 
+<body>
+<#include "fragments/navbar.ftl">
+<h1>Stop list</h1>
+<div class="container">
+    <form action="/stoplist" method="post">
+        <div class="form-group">
+            <label for="uid">UID:</label>
+            <input class="form-control" type="text" name="uid" id="uid">
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
+    </form>
+</div>
 <#if cards??>
-<table border="1">
-    <tr>
+<table class="table table-bordered table-hover">
+    <tr class="active">
         <th>id</th>
         <th>uid</th>
         <th>reason</th>
@@ -42,16 +31,13 @@
 
     <#list cards as card>
         <tr>
-        <td>${card.id?c}</td>
-        <td>${card.uid}</td>
-        <td>${card.reason}</td
-        <td>del</td
-
-    </tr>
-</#list>
+            <td>${card.id?c}</td>
+            <td>${card.uid}</td>
+            <td>${card.reason}</td>
+            <td><a href="/stoplist/delete/${card.uid}">delete</a></td>
+        </tr>
+    </#list>
 </#if>
-
-
 </table>
 </body>
 </html>

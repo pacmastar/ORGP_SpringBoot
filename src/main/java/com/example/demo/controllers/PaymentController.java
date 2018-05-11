@@ -44,7 +44,6 @@ public class PaymentController {
         String cardNumber = payment.getCardNumber();
         model.addAttribute("payment", payment);
         model.addAttribute("sodTransactions", sodTransactionService.findByCardNumber(cardNumber));
-
         model.addAttribute("messages", parserService.findByUid(cardNumber, payment.getChangeStatusTime()));
         return "viewPayment";
     }

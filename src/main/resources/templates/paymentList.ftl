@@ -3,33 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-        tr:hover td{
-            background: #B3CCFF;/* фон строки при наведении */
-        }
-    </style>
+<#include "fragments/bootstrapcss.ftl">
 </head>
 <body>
-<h1>Spring boot</h1>
+<#include "fragments/navbar.ftl">
+<h1>Send payments</h1>
 <br>
-<br>k
-<table border="1">
-    <tr>
+<table class="table table-bordered table-hover">
+    <tr class="active">
         <th>id</th>
         <th>agent</th>
         <th>paymentId</th>
@@ -40,23 +21,17 @@
         <th>change status</th>
     </tr>
 
-    <#--<h1>${totalPage}</h1>-->
-    <#--<h1>${page_num}</h1>-->
-
-
-
-    <#list paymentList as payment>
-        <tr>
-            <td><a href="/payment/view/${payment.tableId?c}">${payment.tableId?c}</a></td>
-            <td>${payment.systemId}</td>
-            <td>${payment.paymentId}</td>
-            <td>${payment.cardNumber}</td>
-            <td>${payment.summ?c}</td>
-            <td>${payment.agentTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
-            <td>${payment.status}</td>
-            <td>${payment.changeStatusTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
-
-        </tr>
+<#list paymentList as payment>
+    <tr>
+        <td><a href="/payment/view/${payment.tableId?c}">${payment.tableId?c}</a></td>
+        <td>${payment.systemId}</td>
+        <td>${payment.paymentId}</td>
+        <td>${payment.cardNumber}</td>
+        <td>${payment.summ?c}</td>
+        <td>${payment.agentTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
+        <td>${payment.status}</td>
+        <td>${payment.changeStatusTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
+    </tr>
 </#list>
 </table>
 </body>

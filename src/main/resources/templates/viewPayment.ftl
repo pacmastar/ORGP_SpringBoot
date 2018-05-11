@@ -2,32 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>view payment</title>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-
-        tr:hover td{
-            background: #B3CCFF;/* фон строки при наведении */
-        }
-    </style>
+    <title>Title</title>
+<#include "fragments/bootstrapcss.ftl">
 </head>
 <body>
-<table>
-    <tr>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Spring Boot</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/payments">payments</a></li>
+                <li><a href="/stoplist">stoplist</a></li>
+                <li><a href="/searchSod">search</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<h1>Send payments!!!!!!!!!</h1>
+<br>
+<table class="table table-bordered table-hover">
+    <tr class="active">
         <th>id</th>
         <th>agent</th>
         <th>paymentid</th>
@@ -52,26 +51,25 @@
 </table>
 <br>
 <br>
-
 <a href="/payments/">back</a>
 <br>
 <br>
-<table>
-    <tr>
+<table class="table table-bordered table-hover">
+    <tr class="active">
         <th>uid</th>
         <th>date</th>
         <th>info</th>
     </tr>
-    <#list messages as message>
-        <tr>
-            <td>${message.uid}</td>
-            <td>${message.regDateTime}</td>
-            <td>${message.info}</td>
-        </tr>
-    </#list>
-</table>
-<table>
+<#list messages as message>
     <tr>
+        <td>${message.uid}</td>
+        <td>${message.regDateTime}</td>
+        <td>${message.info}</td>
+    </tr>
+</#list>
+</table>
+<table class="table table-bordered table-hover">
+    <tr class="active">
         <th>idSodTrans</th>
         <th>cardNumber</th>
         <th>cardType</th>
@@ -83,10 +81,11 @@
         <th>summPurse</th>
         <th>validatorId</th>
         <th>agentId</th>
-        <#--<th>dosFlag</th>-->
+    <#--
+    <th>dosFlag</th>
+    -->
         <th>signature</th>
     </tr>
-
 <#list sodTransactions as transaction>
     <tr>
         <td>${transaction.idSodTrans?c}</td>
@@ -102,7 +101,6 @@
         <td>${transaction.agentId}</td>
         <td>${transaction.dosFlag?string("true","")}</td>
         <td>${transaction.signature}</td>
-
     </tr>
 </#list>
 </table>

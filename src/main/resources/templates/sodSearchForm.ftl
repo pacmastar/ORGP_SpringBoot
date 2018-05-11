@@ -3,40 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-
-        tr:hover td{
-            background: #B3CCFF;/* фон строки при наведении */
-        }
-    </style>
+<#include "fragments/bootstrapcss.ftl">
 </head>
 <body>
-<form action="/searchSod" method="post">
-    UID:<br>
-    <input type="text" name="uid">
-    <input type="submit" value="Submit">
-</form>
+<#include "fragments/navbar.ftl">
+<div class="container">
+    <form action="/searchSod" method="post">
+        <div class="form-group">
+            <label for="uid">UID:</label>
+            <input class="form-control" type="text" name="uid" id="uid">
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
+    </form>
+</div>
 <#if primaryList??>
 <br>
-<h3>Active</h3>
+<h1>Active</h1>
 <br>
-<table>
-    <tr>
+
+
+
+
+<table class="table table-bordered table-hover">
+    <tr class="active">
         <th>idSodTrans</th>
         <th>cardNumber</th>
         <th>cardType</th>
@@ -76,9 +67,9 @@
 </table>
 
 <br>
-<h3>Аrchive</h3>
-<table>
-    <tr>
+<h1>Archive</h1>
+<table class="table table-bordered table-hover">
+    <tr class="active">
         <th>idSodTrans</th>
         <th>cardNumber</th>
         <th>cardType</th>
@@ -97,7 +88,7 @@
     </tr>
     <br>
     <#list secondaryList as secondary>
-        <tr>
+        <tr class="active">
             <td>${secondary.idSodTrans?c}</td>
             <td>${secondary.cardNumber}</td>
             <td>${secondary.cardType}</td>

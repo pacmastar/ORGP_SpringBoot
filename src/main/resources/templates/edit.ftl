@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<#include "fragments/navbar.ftl">
 <h1>Spring boot</h1>
 
 <form name = "user" action="/addUser" method="post">
