@@ -46,9 +46,9 @@
         <td>${payment.agentTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
         <td>${payment.status}</td>
         <td>${payment.changeStatusTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
-        <td><a href="/payment/unblock/${payment.tableId?c}">unblock</a></td>
-        <td><a href="/payment/repaid/${payment.tableId?c}">repaid</a></td>
-        <td><a href="/payment/layaside/${payment.tableId?c}">lay aside</a></td>
+        <td><a href="/payment/unblock/${payment.tableId?c}" class="btn btn-success">unblock</a></td>
+        <td><a href="/payment/repaid/${payment.tableId?c}" class="btn btn-danger">repaid</a></td>
+        <td><a href="/payment/layaside/${payment.tableId?c}" class="btn btn-warning">lay aside</a></td>
     </tr>
 </table>
 <br>
