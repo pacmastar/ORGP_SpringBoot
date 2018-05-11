@@ -4,6 +4,8 @@ import com.example.demo.domain.primary.Payment;
 import com.example.demo.service.ParserService;
 import com.example.demo.service.primary.PaymentService;
 import com.example.demo.service.secondary.SodTransactionService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,7 @@ import java.util.List;
 
 @Controller
 public class PaymentController {
-
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
     @Autowired
     PaymentService paymentService;
 
@@ -35,6 +37,7 @@ public class PaymentController {
     public String doPaymentList(Model model){
         List<Payment> paymentList = new ArrayList<Payment>();
         model.addAttribute("paymentList", paymentService.findBlockedPayments());
+        model.addAttribute("layAsidePaymentList", paymentService.findLayAsidePayments());
         return "paymentList";
     }
 
@@ -48,10 +51,27 @@ public class PaymentController {
         return "viewPayment";
     }
 
-    @RequestMapping("/payment/changestatus/{tableid}")
+    @RequestMapping("/payment/unblock/{tableid}")
     public String unblock(@PathVariable("tableid") Long tableid){
         Payment payment = paymentService.findByTableId(tableid);
         paymentService.unblockPayment(payment);
+        log.info("/payment/unblock/{tableid}" + tableid);
+        return "redirect:/payments";
+    }
+
+    @RequestMapping("/payment/repaid/{tableid}")
+    public String repaid(@PathVariable("tableid") Long tableid){
+        Payment payment = paymentService.findByTableId(tableid);
+        paymentService.repaidPayment(payment);
+        log.info("/payment/repaid/{tableid}" + tableid);
+        return "redirect:/payments";
+    }
+
+    @RequestMapping("/payment/layaside/{tableid}")
+    public String layAside(@PathVariable("tableid") Long tableid) {
+        Payment payment = paymentService.findByTableId(tableid);
+        paymentService.layAsidePayment(payment);
+        log.info("/payment/layaside/{tableid}" + tableid);
         return "redirect:/payments";
     }
 }

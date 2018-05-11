@@ -35,7 +35,7 @@
         <th>agenttime</th>
         <th>status</th>
         <th>changeStatusTime</th>
-        <th>action</th>
+        <th colspan="3">action</th>
     </tr>
     <tr>
         <td>${payment.tableId?c}</td>
@@ -46,7 +46,9 @@
         <td>${payment.agentTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
         <td>${payment.status}</td>
         <td>${payment.changeStatusTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
-        <td><a href="/payment/changestatus/${payment.tableId?c}">unblock</a></td>
+        <td><a href="/payment/unblock/${payment.tableId?c}">unblock</a></td>
+        <td><a href="/payment/repaid/${payment.tableId?c}">repaid</a></td>
+        <td><a href="/payment/layaside/${payment.tableId?c}">lay aside</a></td>
     </tr>
 </table>
 <br>
@@ -81,9 +83,7 @@
         <th>summPurse</th>
         <th>validatorId</th>
         <th>agentId</th>
-    <#--
-    <th>dosFlag</th>
-    -->
+        <th>dosFlag</th>
         <th>signature</th>
     </tr>
 <#list sodTransactions as transaction>
