@@ -34,7 +34,7 @@
             <td>${card.id?c}</td>
             <td>${card.uid}</td>
             <td>${card.reason}</td>
-            <td><a href="/stoplist/delete/${card.uid}">delete</a></td>
+            <td><a href="/stoplist/delete/${card.uid}" class="btn btn-danger">delete</a></td>
         </tr>
     </#list>
 </#if>

@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.domain.primary.Payment;
 import com.example.demo.domain.primary.StopListEntity;
 import com.example.demo.service.primary.StopListEntityRepository;
 import org.slf4j.Logger;
@@ -34,5 +35,11 @@ public class StopListController {
         log.info("list size: " + stopListEntities.size());
         model.addAttribute("cards",stopListEntities);
         return "stopListForm";
+    }
+    @RequestMapping(value = "/stoplist/delete/{uid}", method = RequestMethod.GET)
+    public String removeByUid(@PathVariable("uid") String uid) {
+        stopListEntityRepository.removeByUid(uid);
+        log.info("remove from stoplist " + uid);
+        return "redirect:/stoplist";
     }
 }
