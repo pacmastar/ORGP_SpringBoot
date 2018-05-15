@@ -69,4 +69,9 @@ public class PaymentService implements IPaymentService {
     public Payment findByTableId(long tableid) {
         return paymentRepository.findByTableId(tableid);
     }
+
+    @Override
+    public List<Payment> findByUid(String uid) {
+        return paymentRepository.findByCardNumberOrderByTableIdDesc(uid);
+    }
 }

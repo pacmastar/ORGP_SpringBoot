@@ -104,5 +104,29 @@
     </tr>
 </#list>
 </table>
+<table class="table table-bordered table-hover">
+    <tr class="active">
+        <th>id</th>
+        <th>agent</th>
+        <th>paymentid</th>
+        <th>cardnumber</th>
+        <th>summ</th>
+        <th>agenttime</th>
+        <th>status</th>
+        <th>changeStatusTime</th>
+    </tr>
+    <#list allPayments as p>
+    <tr>
+        <td>${p.tableId?c}</td>
+        <td>${p.systemId}</td>
+        <td>${p.paymentId}</td>
+        <td>${p.cardNumber}</td>
+        <td>${p.summ}</td>
+        <td>${p.agentTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
+        <td>${p.status}</td>
+        <td>${p.changeStatusTime?string["yyyy-MM-dd HH:mm:ss.sss"]}</td>
+    </tr>
+    </#list>
+</table>
 </body>
 </html>

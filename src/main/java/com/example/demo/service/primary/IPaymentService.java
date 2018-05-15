@@ -12,4 +12,5 @@ public interface IPaymentService {
     List<Payment> findBlockedPayments();
     List<Payment> findLayAsidePayments();
     Payment findByTableId(long tableid);
+    List<Payment> findByUid(String uid);
 }

@@ -11,6 +11,6 @@ import java.util.List;
 public interface PaymentRepository extends JpaRepository<Payment,Long> {
     Payment findByTableId(Long tableId);
     List<Payment> findByStatusEqualsAndAgentTimeAfterOrderByAgentTimeDesc(int status, @Temporal(TemporalType.DATE) Date date);
-
+    List<Payment> findByCardNumberOrderByTableIdDesc(String uid);
 }
 

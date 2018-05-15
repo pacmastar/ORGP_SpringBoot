@@ -45,9 +45,11 @@ public class PaymentController {
     public String viewPayment(Model model, @PathVariable("tableid") Long tableid){
         Payment payment = paymentService.findByTableId(tableid);
         String cardNumber = payment.getCardNumber();
+
         model.addAttribute("payment", payment);
         model.addAttribute("sodTransactions", sodTransactionService.findByCardNumber(cardNumber));
         model.addAttribute("messages", parserService.findByUid(cardNumber, payment.getChangeStatusTime()));
+        model.addAttribute("allPayments",paymentService.findByUid(cardNumber));
         return "viewPayment";
     }
 
