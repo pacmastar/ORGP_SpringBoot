@@ -8,6 +8,7 @@
                 <li><a href="/payments">payments</a></li>
                 <li><a href="/stoplist">stoplist</a></li>
                 <li><a href="/searchSod">search</a></li>
+                <li><a href="/payment/add">add payment</a></li>
             </ul>
         </div>
     </div>

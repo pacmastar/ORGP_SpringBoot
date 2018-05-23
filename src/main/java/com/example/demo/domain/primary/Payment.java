@@ -6,9 +6,18 @@ import java.util.Date;
 @Entity
 @Table(name = "sendpayment")
 public class Payment {
+    public Payment(int systemId, String paymentId, String cardNumber, int summ, Date agentTime, int status) {
+        this.systemId = systemId;
+        this.paymentId = paymentId;
+        this.cardNumber = cardNumber;
+        this.summ = summ;
+        this.agentTime = agentTime;
+        this.status = status;
+        this.changeStatusTime = this.agentTime;
+    }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "table_Id")
     public long tableId;
 

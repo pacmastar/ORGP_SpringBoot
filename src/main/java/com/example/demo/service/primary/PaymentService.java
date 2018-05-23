@@ -74,4 +74,8 @@ public class PaymentService implements IPaymentService {
     public List<Payment> findByUid(String uid) {
         return paymentRepository.findByCardNumberOrderByTableIdDesc(uid);
     }
+
+    public void save(Payment payment) {
+        paymentRepository.save(payment);
+    }
 }
