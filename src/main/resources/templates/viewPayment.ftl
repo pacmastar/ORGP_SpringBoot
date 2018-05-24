@@ -147,5 +147,6 @@
         </div>
     </div>
 </div>
+<#include "fragments/footer.ftl">
 </body>
 </html>
