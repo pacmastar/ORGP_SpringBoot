@@ -30,16 +30,19 @@
             <label for="status">Status:</label>
             <input class="form-control" type="text" name="status" id="status">
         </div>
-        <div class="input-group date form-group" id="datetimepicker">
+        <div class="form-group">
+            <label for="datetimepicker">Agent Time:</label>
+            <div class="input-group date" id="datetimepicker">
             <span class="input-group-addon datepickerbutton">
                 <span class="glyphicon glyphicon-calendar"></span>
             </span>
-
-            <input type="text" class="form-control" name="agentTime" id="agentTime"/>
-            <span class="input-group-addon">
+                <input type="text" class="form-control" name="agentTime" id="agentTime"/>
+                <span class="input-group-addon">
                 <span class="glyphicon glyphicon-remove"></span>
             </span>
+            </div>
         </div>
+
         <div class="form-group">
             <input class="btn btn-primary" type="submit" value="Submit">
         </div>
