@@ -16,6 +16,9 @@ public class Payment {
         this.changeStatusTime = this.agentTime;
     }
 
+    public Payment() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "table_Id")
